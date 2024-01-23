@@ -1,18 +1,14 @@
-pub mod buckwalter;
-
 use std::fmt;
 
-fn convert_en_ar(input: String) -> Vec<String> {
+pub fn convert_en_ar(input: String) -> Vec<String> {
     let chars: Vec<char> = input.chars().collect();
-    log!("Input: {:?}", chars);
     let mut converted = Vec::<String>::new();
     for char in chars.iter() {
         match match_char(char) {
             Ok(matched_char) => converted.push(matched_char.match_char().to_string()),
-            Err(e) => log!("{}", e),
+            Err(e) => (),
         };
     }
-    leptos::logging::log!("Ouput: {:?}", converted);
     converted
 }
 
