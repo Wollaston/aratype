@@ -6,7 +6,7 @@ pub fn convert_en_ar(input: String) -> Vec<String> {
     for char in chars.iter() {
         match match_char(char) {
             Ok(matched_char) => converted.push(matched_char.match_char().to_string()),
-            Err(e) => (),
+            Err(_) => (),
         };
     }
     converted
